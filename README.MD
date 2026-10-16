@@ -30,7 +30,7 @@ sudo bash -c "$(curl -sL https://github.com/amirabasimani015-dev/Ad_Sub1/raw/mai
 اسکریپت به‌ترتیب:
 
 1. از `.env` پنل بکاپ می‌گیرد
-2. قالب صفحه را در `/var/lib/pasarguard/templates/subscription/index.html` می‌نویسد
+2. فایل `index.html` را از همین ریپو دانلود و سالم بودنش را بررسی می‌کند، سپس قالب را در `/var/lib/pasarguard/templates/subscription/index.html` می‌نویسد
 3. دو خط تنظیمات قالب را در `.env` اضافه می‌کند
 4. پنل را ریستارت می‌کند
 
@@ -66,6 +66,7 @@ sudo bash -c "$(curl -sL https://github.com/amirabasimani015-dev/Ad_Sub1/raw/mai
 | مشکل | راه‌حل |
 |---|---|
 | خروجی `404` یا اسکریپت اجرا نشد | ریپو باید Public باشد و فایل `install.sh` در ریشه‌ی ریپو باشد |
+| پیام «فایل index.html ناقص یا خراب است» | فایل `index.html` در گیت‌هاب کامل آپلود نشده؛ دوباره آپلودش کن (چیزی روی پنل تغییر نکرده است) |
 | سرور به گیت‌هاب نمی‌رسد | `install.sh` را با `scp` به سرور بفرست و با `sudo bash install.sh` اجرا کن |
 | صفحه‌ی ۵۰۰ می‌دهد | `pasarguard logs \| tail -n 50` و `grep -n TEMPLATE /opt/pasarguard/.env` را بزن |
 | تغییر دیده نمی‌شود | `Ctrl+F5` بزن؛ کش مرورگر یا Cloudflare را پاک کن؛ `pasarguard restart` را بزن |
@@ -78,7 +79,7 @@ sudo bash -c "$(curl -sL https://github.com/amirabasimani015-dev/Ad_Sub1/raw/mai
 
 | فایل | توضیح |
 |---|---|
-| `install.sh` | اسکریپت نصب (کل صفحه داخل خودش است؛ فقط همین لازم است) |
+| `install.sh` | اسکریپت نصب (کوچک است؛ فایل `index.html` را از همین ریپو دانلود و بررسی می‌کند) |
 | `index.html` | خود صفحه، برای ویرایش یا نصب دستی |
 | `RAHNAMA.txt` | راهنمای کامل فارسی |
 
